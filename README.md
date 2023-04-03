@@ -57,6 +57,8 @@ vendor\bin\phpunit
 Para executar cada método individualmente, digite os códigos abaixo, um de cada vez:
 
 vendor\bin\phpunit --filter test_get_area_triangle
+
+
 vendor\bin\phpunit --filter test_get_area_rectangle
 
 
