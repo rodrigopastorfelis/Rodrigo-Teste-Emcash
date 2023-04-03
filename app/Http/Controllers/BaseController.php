@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Retangulo;
 use App\Models\Triangulo;
-use GuzzleHttp\Promise\Create;
 use App\Http\Requests\CreateTrianguloRequest;
 use App\Http\Requests\CreateRetanguloRequest;
 
