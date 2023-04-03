@@ -22,7 +22,7 @@ class BaseController extends Controller
             return 'Erro ao cadastrar triangulo, verifique se os dados estão corretos';
         }
 
-        return 'Triangulo cadastrado com sucesso';
+        return response()->created();
     }
 
     public function retangulo(CreateRetanguloRequest $request)
@@ -38,7 +38,7 @@ class BaseController extends Controller
             return 'Erro ao cadastrar retangulo, verifique se os dados estão corretos.';
         }
         
-        return 'Retangulo cadastrado com sucesso';
+        return response()->created();
     }
 
     public function resultado()
