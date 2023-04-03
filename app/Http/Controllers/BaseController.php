@@ -53,8 +53,8 @@ class BaseController extends Controller
 
     public function resultado()
     {
-        $triangulo = triangulo::all();
-        $retangulo = retangulo::all();
+        $triangulo = Triangulo::all();
+        $retangulo = Retangulo::all();
         $resultado = 0;
 
 
