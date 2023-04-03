@@ -8,11 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Triangulo extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['base', 'altura', 'area'];
-
-    public function getArea($base, $altura){
-        $area = ($base * $altura)/2;
-        return $area;
-    }
 }
