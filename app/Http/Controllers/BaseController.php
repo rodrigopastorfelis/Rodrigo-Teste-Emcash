@@ -14,6 +14,10 @@ class BaseController extends Controller
     {
         try{
          Triangulo::Create([
+            $request->validated([
+                'base' => 'required|numeric|min:0.1',
+                'height' => 'required|numeric|min:0.1',
+            ]),
             'base' => $request->base,
             'altura' => $request->height,
             'area' => ($request->base * $request->height)/2,
@@ -29,7 +33,10 @@ class BaseController extends Controller
     {
         try{
         Retangulo::Create([
-            $request->validated(),
+            $request->validated([
+                'base' => 'required|numeric|min:0.1',
+                'height' => 'required|numeric|min:0.1',
+            ]),
             'base' => $request->base,
             'altura' => $request->height,
             'area' => $request->base * $request->height,

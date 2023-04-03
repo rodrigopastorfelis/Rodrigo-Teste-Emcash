@@ -7,10 +7,10 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Retangulo;
 
-class RetanguloAreaTest extends TestCase
+class RetangleTest extends TestCase
 {
     public function test_AreaRetangulo(){
-        $retangulo = new retangulo();
+        $retangulo = new Retangulo();
         $retangulo->base = 10;
         $retangulo->altura = 10;
         $retangulo->area = $retangulo->getArea($retangulo->base, $retangulo->altura);
