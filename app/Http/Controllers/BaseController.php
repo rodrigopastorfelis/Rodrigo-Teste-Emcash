@@ -6,20 +6,27 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\retangulo;
 use App\Models\triangulo;
+use GuzzleHttp\Promise\Create;
+use App\Http\Requests\CreateTrianguloRequest;
+use App\Http\Requests\CreateRetanguloRequest;
 
 class BaseController extends Controller
 {
-    public function triangulo(Request $request)
+    public function triangulo(CreateTrianguloRequest  $request)
     {
-        $triangulo = new triangulo();
-        $triangulo->base = $request->base;
-        $triangulo->altura = $request->altura;
-        $triangulo->area = $triangulo->getArea($triangulo->base, $triangulo->altura);
-        
-        $triangulo->save();        
+        try{
+        $triangulo = triangulo::Create([
+            'base' => $request->base,
+            'altura' => $request->altura,
+            'area' => ($request->base * $request->altura)/2,
+        ]);
+        $triangulo->save();
+        }catch(\Exception $e){
+            return $e->getMessage();
+        }
     }
 
-    public function retangulo(Request $request)
+    public function retangulo(CreateRetanguloRequest $request)
     {
         $retangulo = new retangulo();
         $retangulo->base = $request->base;
