@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Triangulo;
 
-class TrianguloAreaTest extends TestCase
+class test_TrianguloArea extends TestCase
 {
     public function teste_area_triangulo(){
         $triangulo = new triangulo();
