@@ -56,10 +56,10 @@ vendor\bin\phpunit
 
 Para executar cada método individualmente, digite os códigos abaixo, um de cada vez:
 
-vendor\bin\phpunit --filter TrianguloAreaTest
+vendor\bin\phpunit --filter TriangleTest
 
 
-vendor\bin\phpunit --filter RetanguloAreaTest
+vendor\bin\phpunit --filter RetangleTest
 
 
 
