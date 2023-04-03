@@ -11,7 +11,7 @@ class CreateRetanguloRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +22,8 @@ class CreateRetanguloRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'base' => 'required|numeric|min:0',
-            'altura' => 'required|numeric|min:0',
+            'base' => 'required|numeric|min:0.1',
+            'height' => 'required|numeric|min:0.1',
         ];
     }
 }

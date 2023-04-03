@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\retangulo;
-use App\Models\triangulo;
+use App\Models\Retangulo;
+use App\Models\Triangulo;
 use GuzzleHttp\Promise\Create;
 use App\Http\Requests\CreateTrianguloRequest;
 use App\Http\Requests\CreateRetanguloRequest;
@@ -15,26 +15,32 @@ class BaseController extends Controller
     public function triangulo(CreateTrianguloRequest  $request)
     {
         try{
-        $triangulo = triangulo::Create([
+         Triangulo::Create([
             'base' => $request->base,
-            'altura' => $request->altura,
-            'area' => ($request->base * $request->altura)/2,
+            'altura' => $request->height,
+            'area' => ($request->base * $request->height)/2,
         ]);
-        $triangulo->save();
         }catch(\Exception $e){
-            return $e->getMessage();
+            return 'Erro ao cadastrar triangulo, verifique se os dados estão corretos';
         }
+
+        return 'Triangulo cadastrado com sucesso';
     }
 
     public function retangulo(CreateRetanguloRequest $request)
     {
-        $retangulo = new retangulo();
-        $retangulo->base = $request->base;
-        $retangulo->altura = $request->altura;
-        $retangulo->area = $retangulo->getArea($retangulo->base, $retangulo->altura);
-
+        try{
+        Retangulo::Create([
+            $request->validated(),
+            'base' => $request->base,
+            'altura' => $request->height,
+            'area' => $request->base * $request->height,
+        ]);
+        }catch(\Exception $e){
+            return 'Erro ao cadastrar retangulo, verifique se os dados estão corretos.';
+        }
         
-        $retangulo->save();        
+        return 'Retangulo cadastrado com sucesso';
     }
 
     public function resultado()

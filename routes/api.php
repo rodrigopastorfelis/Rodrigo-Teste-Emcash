@@ -14,9 +14,7 @@ use App\Http\Controllers\BaseController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
 
 Route::post('/triangulo', [BaseController::class, 'triangulo'])->name('triangulo');
 Route::post('/retangulo', [BaseController::class, 'retangulo'])->name('retangulo');

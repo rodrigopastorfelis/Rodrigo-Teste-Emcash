@@ -11,7 +11,7 @@ class CreateTrianguloRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +23,7 @@ class CreateTrianguloRequest extends FormRequest
     {
         return [
             'base' => 'required|numeric|min:0',
-            'altura' => 'required|numeric|min:0',            
+            'height' => 'required|numeric|min:0',            
         ];
     }
 }

@@ -5,9 +5,9 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use App\Models\triangulo;
+use App\Models\Triangulo;
 
-class triangulo_area_Test extends TestCase
+class TrianguloAreaTest extends TestCase
 {
     public function teste_area_triangulo(){
         $triangulo = new triangulo();

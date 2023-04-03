@@ -5,9 +5,9 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
-use App\Models\retangulo;
+use App\Models\Retangulo;
 
-class retangulo_area_Test extends TestCase
+class RetanguloAreaTest extends TestCase
 {
     public function teste_area_retangulo(){
         $retangulo = new retangulo();
