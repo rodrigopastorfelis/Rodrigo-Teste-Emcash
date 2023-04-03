@@ -53,8 +53,15 @@ class BaseController extends Controller
 
     public function resultado()
     {
+        try{
         $triangulo = Triangulo::all();
         $retangulo = Retangulo::all();
+        }
+        catch(\Exception $e){
+            return 'Erro ao buscar os dados, verifique se possuem dados cadastrados.';
+        }
+
+        
         $resultado = 0;
 
 
