@@ -7,6 +7,7 @@ use App\Models\Retangulo;
 use App\Models\Triangulo;
 use App\Http\Requests\CreateTrianguloRequest;
 use App\Http\Requests\CreateRetanguloRequest;
+use Illuminate\Http\ResponseFactory;
 
 class BaseController extends Controller
 {
@@ -22,17 +23,17 @@ class BaseController extends Controller
             'altura' => $request->height,
             'area' => ($request->base * $request->height)/2,
         ]);
+        return response(['message' => 'Triangulo criado'], 201);
         }catch(\Exception $e){
             return 'Erro ao cadastrar triangulo, verifique se os dados estão corretos';
         }
 
-        return response()->created();
     }
 
     public function retangulo(CreateRetanguloRequest $request)
     {
         try{
-        Retangulo::Create([
+            Retangulo::Create([
             $request->validated([
                 'base' => 'required|numeric|min:0.1',
                 'height' => 'required|numeric|min:0.1',
@@ -40,12 +41,14 @@ class BaseController extends Controller
             'base' => $request->base,
             'altura' => $request->height,
             'area' => $request->base * $request->height,
-        ]);
+            
+            ]);
+            return response(['message' => 'Retangulo criado'], 201);
         }catch(\Exception $e){
             return 'Erro ao cadastrar retangulo, verifique se os dados estão corretos.';
         }
         
-        return response()->created();
+        
     }
 
     public function resultado()
